@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "tsc --noEmit",
     "preview": "vite preview",
-    "generate-solutions": "python3 scripts/generate_solutions.py"
+    "generate-solutions": "python3 scripts/generate_solutions.py",
+    "deploy": "pnpm build && gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
