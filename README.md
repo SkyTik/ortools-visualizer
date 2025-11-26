@@ -1,6 +1,14 @@
 # TSP First Solution Strategies Demo
 
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://skytik.github.io/ortools-visualizer/)
+[![React](https://img.shields.io/badge/React-19-61dafb)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178c6)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7-646cff)](https://vite.dev/)
+[![License](https://img.shields.io/badge/license-ISC-blue)](LICENSE)
+
 An interactive React-based educational website demonstrating 10 first solution strategies from Google OR-Tools for the Traveling Salesman Problem (TSP).
+
+**[View Live Demo](https://skytik.github.io/ortools-visualizer/)**
 
 ## Features
 
