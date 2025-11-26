@@ -1,10 +1,10 @@
 # TSP First Solution Strategies Demo
 
-An interactive React-based educational website demonstrating 7 first solution strategies from Google OR-Tools for the Traveling Salesman Problem (TSP).
+An interactive React-based educational website demonstrating 10 first solution strategies from Google OR-Tools for the Traveling Salesman Problem (TSP).
 
 ## Features
 
-- **7 TSP Algorithms**: Path Cheapest Arc, Global Cheapest Arc, Local Cheapest Insertion, Savings (Clarke-Wright), Christofides, First Unbound Min Value, and Sweep
+- **10 TSP Algorithms**: Path Cheapest Arc, Global Cheapest Arc, Local Cheapest Arc, Local Cheapest Insertion, Best Insertion, Parallel Cheapest Insertion, Savings (Clarke-Wright), Christofides, First Unbound Min Value, and Sweep
 - **Step-by-Step Visualization**: Navigate through each algorithm's execution to see how routes are built
 - **Interactive Controls**: Choose from 5-10 location counts and switch between strategies
 - **Keyboard Navigation**: Use arrow keys (← →) and Home/End for quick navigation
@@ -67,7 +67,7 @@ pnpm generate-solutions
 python3 scripts/generate_solutions.py
 ```
 
-This generates 42 JSON files (6 location counts × 7 strategies) in `src/data/solutions/`.
+This generates 60 JSON files (6 location counts × 10 strategies) in `src/data/solutions/`.
 
 ## Algorithms Explained
 
@@ -75,7 +75,10 @@ This generates 42 JSON files (6 location counts × 7 strategies) in `src/data/so
 |----------|-------------|
 | **Path Cheapest Arc** | Greedy nearest neighbor - always go to closest unvisited node |
 | **Global Cheapest Arc** | Build route by always adding globally shortest edge |
+| **Local Cheapest Arc** | From current node, go to nearest unvisited (similar to Path Cheapest) |
 | **Local Cheapest Insertion** | Insert each node where it causes minimum route cost increase |
+| **Best Insertion** | Insert node with globally minimum insertion cost at each step |
+| **Parallel Cheapest Insertion** | Select node closest to route, then insert at cheapest position |
 | **Savings (Clarke-Wright)** | Merge routes based on distance savings calculation |
 | **Christofides** | 1.5-approximation using MST and minimum matching |
 | **First Unbound Min Value** | Simple sequential assignment by node index |
