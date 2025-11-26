@@ -1,0 +1,372 @@
+{
+  "strategy": "FIRST_UNBOUND_MIN_VALUE",
+  "locationCount": 9,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Baseline: Visit nodes in index order (ignores distances)",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 0,
+        "to": 1
+      },
+      "candidates": null,
+      "explanation": "Visit next index: A (node 1), +212 units",
+      "totalDistance": 212
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 1,
+        "to": 2
+      },
+      "candidates": null,
+      "explanation": "Visit next index: B (node 2), +301 units",
+      "totalDistance": 513
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 2,
+        "to": 3
+      },
+      "candidates": null,
+      "explanation": "Visit next index: C (node 3), +226 units",
+      "totalDistance": 739
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "Visit next index: D (node 4), +166 units",
+      "totalDistance": 905
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 4,
+        "to": 5
+      },
+      "candidates": null,
+      "explanation": "Visit next index: E (node 5), +232 units",
+      "totalDistance": 1137
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        }
+      ],
+      "currentNode": 6,
+      "highlightEdge": {
+        "from": 5,
+        "to": 6
+      },
+      "candidates": null,
+      "explanation": "Visit next index: F (node 6), +157 units",
+      "totalDistance": 1294
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        }
+      ],
+      "currentNode": 7,
+      "highlightEdge": {
+        "from": 6,
+        "to": 7
+      },
+      "candidates": null,
+      "explanation": "Visit next index: G (node 7), +156 units",
+      "totalDistance": 1450
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 8
+        }
+      ],
+      "currentNode": 8,
+      "highlightEdge": {
+        "from": 7,
+        "to": 8
+      },
+      "candidates": null,
+      "explanation": "Visit next index: H (node 8), +122 units",
+      "totalDistance": 1572
+    },
+    {
+      "step": 9,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": {
+        "from": 8,
+        "to": 0
+      },
+      "candidates": null,
+      "explanation": "Return to Depot, +86 units. Tour complete!",
+      "totalDistance": 1658
+    },
+    {
+      "step": 10,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 A \u2192 B \u2192 C \u2192 D \u2192 E \u2192 F \u2192 G \u2192 H \u2192 Depot | Total: 1658 units",
+      "totalDistance": 1658,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    0
+  ],
+  "finalDistance": 1658
+}

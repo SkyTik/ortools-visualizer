@@ -1,0 +1,345 @@
+{
+  "strategy": "GLOBAL_CHEAPEST_ARC",
+  "locationCount": 9,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Start: 36 possible edges sorted by distance",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        }
+      ],
+      "currentNode": 7,
+      "highlightEdge": {
+        "from": 0,
+        "to": 7
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: Depot-G (86 units)",
+      "totalDistance": 86
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        }
+      ],
+      "currentNode": 8,
+      "highlightEdge": {
+        "from": 0,
+        "to": 8
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: Depot-H (86 units)",
+      "totalDistance": 172
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 1,
+          "to": 7
+        }
+      ],
+      "currentNode": 7,
+      "highlightEdge": {
+        "from": 1,
+        "to": 7
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: A-G (128 units)",
+      "totalDistance": 300
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 2,
+          "to": 8
+        }
+      ],
+      "currentNode": 8,
+      "highlightEdge": {
+        "from": 2,
+        "to": 8
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: B-H (144 units)",
+      "totalDistance": 444
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 5,
+          "to": 6
+        }
+      ],
+      "currentNode": 6,
+      "highlightEdge": {
+        "from": 5,
+        "to": 6
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: E-F (157 units)",
+      "totalDistance": 601
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: C-D (166 units)",
+      "totalDistance": 767
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 1,
+          "to": 6
+        }
+      ],
+      "currentNode": 6,
+      "highlightEdge": {
+        "from": 1,
+        "to": 6
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: A-F (181 units)",
+      "totalDistance": 948
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 2,
+          "to": 3
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 2,
+        "to": 3
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: B-C (226 units)",
+      "totalDistance": 1174
+    },
+    {
+      "step": 9,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 2,
+          "to": 3
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Tour complete! Total distance: 1174 units",
+      "totalDistance": 1174
+    },
+    {
+      "step": 10,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 G \u2192 A \u2192 F \u2192 E \u2192 Depot | Total: 749 units",
+      "totalDistance": 749,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    7,
+    1,
+    6,
+    5,
+    0
+  ],
+  "finalDistance": 1174
+}

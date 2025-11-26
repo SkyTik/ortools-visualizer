@@ -1,0 +1,291 @@
+{
+  "strategy": "CHRISTOFIDES",
+  "locationCount": 6,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Step 1: Build Minimum Spanning Tree (MST) using Prim's algorithm",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 0,
+        "to": 5
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge Depot-E (197 units)",
+      "totalDistance": 197
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 0,
+        "to": 3
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge Depot-C (206 units)",
+      "totalDistance": 403
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge C-D (166 units)",
+      "totalDistance": 569
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 0,
+        "to": 1
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge Depot-A (212 units)",
+      "totalDistance": 781
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 3,
+          "to": 2
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 3,
+        "to": 2
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge C-B (226 units)",
+      "totalDistance": 1007
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 3,
+          "to": 2
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Step 2: Find odd-degree vertices: ['Depot', 'A', 'B', 'C', 'D', 'E']",
+      "totalDistance": 1007
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Step 3: Add matching edges (green): +664 units",
+      "totalDistance": 1671
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Steps 4-5: Find Eulerian circuit & shortcut to tour. Distance: 1570",
+      "totalDistance": 1570
+    },
+    {
+      "step": 9,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 E \u2192 C \u2192 D \u2192 B \u2192 A \u2192 Depot | Total: 1570 units",
+      "totalDistance": 1570,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    5,
+    3,
+    4,
+    2,
+    1,
+    0
+  ],
+  "finalDistance": 1570
+}

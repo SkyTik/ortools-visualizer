@@ -1,0 +1,465 @@
+{
+  "strategy": "CHRISTOFIDES",
+  "locationCount": 9,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Step 1: Build Minimum Spanning Tree (MST) using Prim's algorithm",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        }
+      ],
+      "currentNode": 7,
+      "highlightEdge": {
+        "from": 0,
+        "to": 7
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge Depot-G (86 units)",
+      "totalDistance": 86
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        }
+      ],
+      "currentNode": 8,
+      "highlightEdge": {
+        "from": 0,
+        "to": 8
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge Depot-H (86 units)",
+      "totalDistance": 172
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 7,
+          "to": 1
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 7,
+        "to": 1
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge G-A (128 units)",
+      "totalDistance": 300
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 8,
+          "to": 2
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 8,
+        "to": 2
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge H-B (144 units)",
+      "totalDistance": 444
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 7,
+          "to": 6
+        }
+      ],
+      "currentNode": 6,
+      "highlightEdge": {
+        "from": 7,
+        "to": 6
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge G-F (156 units)",
+      "totalDistance": 600
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 7,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 6,
+        "to": 5
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge F-E (157 units)",
+      "totalDistance": 757
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 7,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 8,
+          "to": 3
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 8,
+        "to": 3
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge H-C (164 units)",
+      "totalDistance": 921
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 7,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "MST: Add edge C-D (166 units)",
+      "totalDistance": 1087
+    },
+    {
+      "step": 9,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 7,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Step 2: Find odd-degree vertices: ['A', 'B', 'D', 'E', 'G', 'H']",
+      "totalDistance": 1087
+    },
+    {
+      "step": 10,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 7,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 7,
+          "to": 8
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Step 3: Add matching edges (green): +655 units",
+      "totalDistance": 1742
+    },
+    {
+      "step": 11,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Steps 4-5: Find Eulerian circuit & shortcut to tour. Distance: 1551",
+      "totalDistance": 1551
+    },
+    {
+      "step": 12,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 G \u2192 A \u2192 B \u2192 H \u2192 C \u2192 D \u2192 E \u2192 F \u2192 Depot | Total: 1551 units",
+      "totalDistance": 1551,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    7,
+    1,
+    2,
+    8,
+    3,
+    4,
+    5,
+    6,
+    0
+  ],
+  "finalDistance": 1551
+}

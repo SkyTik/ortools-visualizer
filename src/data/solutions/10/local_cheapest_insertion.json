@@ -1,0 +1,621 @@
+{
+  "strategy": "LOCAL_CHEAPEST_INSERTION",
+  "locationCount": 10,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Start at Depot",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 7,
+      "highlightEdge": {
+        "from": 0,
+        "to": 7
+      },
+      "candidates": null,
+      "explanation": "Create initial tour: Depot \u2192 G \u2192 Depot",
+      "totalDistance": 172
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 8,
+      "highlightEdge": {
+        "from": 0,
+        "to": 8
+      },
+      "candidates": [
+        {
+          "node": 8,
+          "distance": 122,
+          "selected": true
+        },
+        {
+          "node": 6,
+          "distance": 243,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 254,
+          "selected": false
+        },
+        {
+          "node": 9,
+          "distance": 262,
+          "selected": false
+        },
+        {
+          "node": 5,
+          "distance": 356,
+          "selected": false
+        }
+      ],
+      "explanation": "Insert H between Depot and G (cost +122)",
+      "totalDistance": 294
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 9,
+      "highlightEdge": {
+        "from": 0,
+        "to": 9
+      },
+      "candidates": [
+        {
+          "node": 9,
+          "distance": 231,
+          "selected": true
+        },
+        {
+          "node": 6,
+          "distance": 243,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 246,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 248,
+          "selected": false
+        },
+        {
+          "node": 3,
+          "distance": 284,
+          "selected": false
+        }
+      ],
+      "explanation": "Insert I between Depot and H (cost +231)",
+      "totalDistance": 525
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 9,
+        "to": 3
+      },
+      "candidates": [
+        {
+          "node": 3,
+          "distance": 168,
+          "selected": true
+        },
+        {
+          "node": 4,
+          "distance": 195,
+          "selected": false
+        },
+        {
+          "node": 5,
+          "distance": 200,
+          "selected": false
+        },
+        {
+          "node": 6,
+          "distance": 243,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 246,
+          "selected": false
+        }
+      ],
+      "explanation": "Insert C between I and H (cost +168)",
+      "totalDistance": 693
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 9,
+        "to": 4
+      },
+      "candidates": [
+        {
+          "node": 4,
+          "distance": 100,
+          "selected": true
+        },
+        {
+          "node": 5,
+          "distance": 200,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 206,
+          "selected": false
+        },
+        {
+          "node": 6,
+          "distance": 243,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 248,
+          "selected": false
+        }
+      ],
+      "explanation": "Insert D between I and C (cost +100)",
+      "totalDistance": 793
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 0,
+        "to": 5
+      },
+      "candidates": [
+        {
+          "node": 5,
+          "distance": 200,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 206,
+          "selected": false
+        },
+        {
+          "node": 6,
+          "distance": 243,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 248,
+          "selected": false
+        }
+      ],
+      "explanation": "Insert E between Depot and I (cost +200)",
+      "totalDistance": 993
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 6,
+      "highlightEdge": {
+        "from": 0,
+        "to": 6
+      },
+      "candidates": [
+        {
+          "node": 6,
+          "distance": 133,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 206,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 248,
+          "selected": false
+        }
+      ],
+      "explanation": "Insert F between Depot and E (cost +133)",
+      "totalDistance": 1126
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 0,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 3,
+        "to": 2
+      },
+      "candidates": [
+        {
+          "node": 2,
+          "distance": 206,
+          "selected": true
+        },
+        {
+          "node": 1,
+          "distance": 220,
+          "selected": false
+        }
+      ],
+      "explanation": "Insert B between C and H (cost +206)",
+      "totalDistance": 1332
+    },
+    {
+      "step": 9,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 0,
+        "to": 1
+      },
+      "candidates": [
+        {
+          "node": 1,
+          "distance": 220,
+          "selected": true
+        }
+      ],
+      "explanation": "Insert A between Depot and F (cost +220)",
+      "totalDistance": 1552
+    },
+    {
+      "step": 10,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Tour complete! Total distance: 1552 units",
+      "totalDistance": 1552
+    },
+    {
+      "step": 11,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 A \u2192 F \u2192 E \u2192 I \u2192 D \u2192 C \u2192 B \u2192 H \u2192 G \u2192 Depot | Total: 1552 units",
+      "totalDistance": 1552,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    1,
+    6,
+    5,
+    9,
+    4,
+    3,
+    2,
+    8,
+    7,
+    0
+  ],
+  "finalDistance": 1552
+}

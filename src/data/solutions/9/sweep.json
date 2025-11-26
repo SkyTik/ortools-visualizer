@@ -1,0 +1,372 @@
+{
+  "strategy": "SWEEP",
+  "locationCount": 9,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Calculate angle from Depot to each node, sort by angle",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 0,
+        "to": 1
+      },
+      "candidates": null,
+      "explanation": "Visit A (angle: -135\u00b0), +212 units",
+      "totalDistance": 212
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        }
+      ],
+      "currentNode": 7,
+      "highlightEdge": {
+        "from": 1,
+        "to": 7
+      },
+      "candidates": null,
+      "explanation": "Visit G (angle: -126\u00b0), +128 units",
+      "totalDistance": 340
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 2
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 7,
+        "to": 2
+      },
+      "candidates": null,
+      "explanation": "Visit B (angle: -49\u00b0), +224 units",
+      "totalDistance": 564
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        }
+      ],
+      "currentNode": 8,
+      "highlightEdge": {
+        "from": 2,
+        "to": 8
+      },
+      "candidates": null,
+      "explanation": "Visit H (angle: -36\u00b0), +144 units",
+      "totalDistance": 708
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 8,
+        "to": 3
+      },
+      "candidates": null,
+      "explanation": "Visit C (angle: 14\u00b0), +164 units",
+      "totalDistance": 872
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "Visit D (angle: 57\u00b0), +166 units",
+      "totalDistance": 1038
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 4,
+        "to": 5
+      },
+      "candidates": null,
+      "explanation": "Visit E (angle: 120\u00b0), +232 units",
+      "totalDistance": 1270
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        }
+      ],
+      "currentNode": 6,
+      "highlightEdge": {
+        "from": 5,
+        "to": 6
+      },
+      "candidates": null,
+      "explanation": "Visit F (angle: 170\u00b0), +157 units",
+      "totalDistance": 1427
+    },
+    {
+      "step": 9,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": {
+        "from": 6,
+        "to": 0
+      },
+      "candidates": null,
+      "explanation": "Return to Depot, +173 units. Tour complete!",
+      "totalDistance": 1600
+    },
+    {
+      "step": 10,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 A \u2192 G \u2192 B \u2192 H \u2192 C \u2192 D \u2192 E \u2192 F \u2192 Depot | Total: 1600 units",
+      "totalDistance": 1600,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    1,
+    7,
+    2,
+    8,
+    3,
+    4,
+    5,
+    6,
+    0
+  ],
+  "finalDistance": 1600
+}

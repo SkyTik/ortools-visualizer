@@ -1,0 +1,302 @@
+{
+  "strategy": "PATH_CHEAPEST_ARC",
+  "locationCount": 6,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Start at Depot (node 0)",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 0,
+        "to": 5
+      },
+      "candidates": [
+        {
+          "node": 5,
+          "distance": 197,
+          "selected": true
+        },
+        {
+          "node": 3,
+          "distance": 206,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 212,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 227,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 239,
+          "selected": false
+        }
+      ],
+      "explanation": "From Depot, go to nearest: E (197 units)",
+      "totalDistance": 197
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 5,
+        "to": 4
+      },
+      "candidates": [
+        {
+          "node": 4,
+          "distance": 232,
+          "selected": true
+        },
+        {
+          "node": 3,
+          "distance": 323,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 324,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 422,
+          "selected": false
+        }
+      ],
+      "explanation": "From E, go to nearest: D (232 units)",
+      "totalDistance": 429
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 4,
+        "to": 3
+      },
+      "candidates": [
+        {
+          "node": 3,
+          "distance": 166,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 371,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 448,
+          "selected": false
+        }
+      ],
+      "explanation": "From D, go to nearest: C (166 units)",
+      "totalDistance": 595
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 3,
+        "to": 2
+      },
+      "candidates": [
+        {
+          "node": 2,
+          "distance": 226,
+          "selected": true
+        },
+        {
+          "node": 1,
+          "distance": 403,
+          "selected": false
+        }
+      ],
+      "explanation": "From C, go to nearest: B (226 units)",
+      "totalDistance": 821
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 2,
+        "to": 1
+      },
+      "candidates": [
+        {
+          "node": 1,
+          "distance": 301,
+          "selected": true
+        }
+      ],
+      "explanation": "From B, go to nearest: A (301 units)",
+      "totalDistance": 1122
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": {
+        "from": 1,
+        "to": 0
+      },
+      "candidates": null,
+      "explanation": "Return to Depot from A (212 units). Tour complete!",
+      "totalDistance": 1334
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 E \u2192 D \u2192 C \u2192 B \u2192 A \u2192 Depot | Total: 1334 units",
+      "totalDistance": 1334,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "finalDistance": 1334
+}

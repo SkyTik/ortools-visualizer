@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm approve-builds:*)",
+      "WebFetch(domain:developers.google.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebFetch(domain:www.aniketsharma.net)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

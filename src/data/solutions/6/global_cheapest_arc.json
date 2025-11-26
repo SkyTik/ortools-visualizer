@@ -1,0 +1,205 @@
+{
+  "strategy": "GLOBAL_CHEAPEST_ARC",
+  "locationCount": 6,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Start: 15 possible edges sorted by distance",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: C-D (166 units)",
+      "totalDistance": 166
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 5
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 0,
+        "to": 5
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: Depot-E (197 units)",
+      "totalDistance": 363
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 0,
+        "to": 3
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: Depot-C (206 units)",
+      "totalDistance": 569
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 1,
+        "to": 2
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: A-B (301 units)",
+      "totalDistance": 870
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 5
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 1,
+        "to": 5
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: A-E (324 units)",
+      "totalDistance": 1194
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 5
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Tour complete! Total distance: 1194 units",
+      "totalDistance": 1194
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 E \u2192 A \u2192 B \u2192 Depot | Total: 1049 units",
+      "totalDistance": 1049,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    5,
+    1,
+    2,
+    0
+  ],
+  "finalDistance": 1194
+}

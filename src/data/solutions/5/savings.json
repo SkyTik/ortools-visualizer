@@ -1,0 +1,256 @@
+{
+  "strategy": "SAVINGS",
+  "locationCount": 5,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Calculate savings: s(i,j) = d(0,i) + d(0,j) - d(i,j)",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        },
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 0
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 0
+        },
+        {
+          "from": 0,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Initial: 4 separate routes from depot to each node",
+      "totalDistance": 1768
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        },
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 0
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 0
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": [
+        {
+          "node": 4,
+          "distance": 279,
+          "selected": true
+        }
+      ],
+      "explanation": "Merge: C-D saves 279 units",
+      "totalDistance": 1489
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        },
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 0
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 2,
+        "to": 3
+      },
+      "candidates": [
+        {
+          "node": 3,
+          "distance": 207,
+          "selected": true
+        }
+      ],
+      "explanation": "Merge: B-C saves 207 units",
+      "totalDistance": 1282
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 0
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 1,
+        "to": 2
+      },
+      "candidates": [
+        {
+          "node": 2,
+          "distance": 138,
+          "selected": true
+        }
+      ],
+      "explanation": "Merge: A-B saves 138 units",
+      "totalDistance": 1144
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Tour complete! Total distance: 1144 units",
+      "totalDistance": 1144
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 A \u2192 B \u2192 C \u2192 D \u2192 Depot | Total: 1144 units",
+      "totalDistance": 1144,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    0
+  ],
+  "finalDistance": 1144
+}
