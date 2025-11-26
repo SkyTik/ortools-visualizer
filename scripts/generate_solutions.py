@@ -362,36 +362,63 @@ def global_cheapest_arc(locations: list[Location], dist_matrix: list[list[int]])
         )
         step_num += 1
 
-    # Construct route from edges
+    # Construct route from edges by traversing the adjacency list
+    # The edges form a Hamiltonian path - we need to find the proper traversal order
     route = [0]
     current = 0
     visited = {0}
-    while len(route) <= n:
+
+    # Keep trying to extend the route
+    while len(visited) < n:
+        found = False
         for neighbor in adj[current]:
-            if neighbor not in visited or (len(route) == n and neighbor == 0):
+            if neighbor not in visited:
                 route.append(neighbor)
                 visited.add(neighbor)
                 current = neighbor
+                found = True
                 break
-        else:
-            break
 
+        if not found:
+            # Current node has no unvisited neighbors
+            # This can happen with global cheapest arc - edges may form disconnected segments
+            # Find any unvisited node that connects to any visited node
+            for v in visited:
+                for neighbor in adj[v]:
+                    if neighbor not in visited:
+                        # Insert the path from current back to v, then to neighbor
+                        route.append(neighbor)
+                        visited.add(neighbor)
+                        current = neighbor
+                        found = True
+                        break
+                if found:
+                    break
+
+            if not found:
+                # No more nodes reachable - this shouldn't happen with valid TSP edges
+                break
+
+    # Close the tour
     if route[-1] != 0:
         route.append(0)
 
-    # Final step
+    # Calculate actual tour distance (may differ from edge sum due to tour ordering)
+    actual_tour_distance = calculate_route_distance(route, dist_matrix)
+
+    # Final step showing edge construction complete
     steps.append(
         step_dict(
             step=step_num,
             edges=selected_edges,
             current_node=0,
-            explanation=f"Tour complete! Total distance: {total_distance} units",
+            explanation=f"All edges added! Edge sum: {total_distance} units. Constructing tour...",
             total_distance=total_distance,
         )
     )
     step_num += 1
 
-    # Add final solution step
+    # Add final solution step with actual tour distance
     steps.append(create_final_step(step_num, route, locations, dist_matrix))
 
     return Solution(
@@ -399,7 +426,7 @@ def global_cheapest_arc(locations: list[Location], dist_matrix: list[list[int]])
         location_count=n,
         steps=steps,
         final_route=route,
-        final_distance=total_distance,
+        final_distance=actual_tour_distance,
     )
 
 
@@ -1004,13 +1031,409 @@ def sweep(locations: list[Location], dist_matrix: list[list[int]]) -> Solution:
 
 
 # =============================================================================
+# NEW STRATEGIES (BEST_INSERTION, PARALLEL_CHEAPEST_INSERTION, LOCAL_CHEAPEST_ARC)
+# =============================================================================
+
+
+def best_insertion(locations: list[Location], dist_matrix: list[list[int]]) -> Solution:
+    """
+    BEST_INSERTION: At each step, find the node whose best insertion position
+    causes the minimum global cost increase. Different from LOCAL_CHEAPEST_INSERTION
+    which picks the node with minimum insertion cost at its best position.
+
+    This method evaluates ALL nodes and ALL positions, picking the globally
+    optimal (node, position) pair at each step.
+    """
+    n = len(locations)
+    steps = []
+
+    # Find nearest node to depot to start
+    nearest = min(range(1, n), key=lambda x: dist_matrix[0][x])
+    nearest_dist = dist_matrix[0][nearest]
+
+    # Initial route: depot -> nearest -> depot
+    route = [0, nearest, 0]
+    unvisited = set(range(1, n)) - {nearest}
+    total_distance = 2 * nearest_dist
+
+    # Build initial edges
+    edges = [edge_dict(0, nearest), edge_dict(nearest, 0)]
+
+    steps.append(
+        step_dict(
+            step=0,
+            edges=[],
+            current_node=0,
+            explanation="Start at Depot. Find node with minimum insertion cost globally.",
+            total_distance=0,
+        )
+    )
+
+    steps.append(
+        step_dict(
+            step=1,
+            edges=list(edges),
+            current_node=nearest,
+            explanation=f"Create initial tour: Depot → {locations[nearest].label} → Depot",
+            total_distance=total_distance,
+            highlight_edge=edge_dict(0, nearest),
+        )
+    )
+
+    step_num = 2
+    while unvisited:
+        # Find best (node, position) pair globally
+        best_node = None
+        best_pos = None
+        best_cost = float("inf")
+        node_best_costs = {}  # Store best cost for each node for candidates display
+
+        for node in unvisited:
+            min_cost_for_node = float("inf")
+            best_pos_for_node = None
+
+            # Find best position for this node
+            for i in range(1, len(route)):
+                prev, next_node = route[i - 1], route[i]
+                cost = (
+                    dist_matrix[prev][node]
+                    + dist_matrix[node][next_node]
+                    - dist_matrix[prev][next_node]
+                )
+                if cost < min_cost_for_node:
+                    min_cost_for_node = cost
+                    best_pos_for_node = i
+
+            node_best_costs[node] = (min_cost_for_node, best_pos_for_node)
+
+            # Check if this is globally best
+            if min_cost_for_node < best_cost:
+                best_cost = min_cost_for_node
+                best_node = node
+                best_pos = best_pos_for_node
+
+        # Build candidates sorted by their best insertion cost
+        sorted_nodes = sorted(node_best_costs.items(), key=lambda x: x[1][0])
+        candidates = [
+            candidate_dict(node, cost, node == best_node)
+            for node, (cost, _) in sorted_nodes[:5]
+        ]
+
+        # Insert the best node
+        route.insert(best_pos, best_node)
+        unvisited.remove(best_node)
+        total_distance += best_cost
+
+        # Rebuild edges from route
+        edges = [edge_dict(route[i], route[i + 1]) for i in range(len(route) - 1)]
+        highlight = edge_dict(route[best_pos - 1], best_node)
+
+        prev_label = locations[route[best_pos - 1]].label
+        next_label = locations[route[best_pos + 1]].label
+
+        steps.append(
+            step_dict(
+                step=step_num,
+                edges=list(edges),
+                current_node=best_node,
+                explanation=f"Best global insertion: {locations[best_node].label} between {prev_label} and {next_label} (cost +{best_cost})",
+                total_distance=total_distance,
+                highlight_edge=highlight,
+                candidates=candidates,
+            )
+        )
+        step_num += 1
+
+    # Final step
+    steps.append(
+        step_dict(
+            step=step_num,
+            edges=edges,
+            current_node=0,
+            explanation=f"Tour complete! Total distance: {total_distance} units",
+            total_distance=total_distance,
+        )
+    )
+    step_num += 1
+
+    # Add final solution step
+    steps.append(create_final_step(step_num, route, locations, dist_matrix))
+
+    return Solution(
+        strategy="BEST_INSERTION",
+        location_count=n,
+        steps=steps,
+        final_route=route,
+        final_distance=total_distance,
+    )
+
+
+def parallel_cheapest_insertion(locations: list[Location], dist_matrix: list[list[int]]) -> Solution:
+    """
+    PARALLEL_CHEAPEST_INSERTION: Faster insertion variant.
+    At each step, select the unvisited node that is closest to ANY node in the
+    current route (using raw arc cost), then insert it at its cheapest position.
+
+    Key difference from BEST_INSERTION: Selection is based on minimum arc cost
+    to route (faster heuristic), not minimum insertion cost.
+    """
+    n = len(locations)
+    steps = []
+
+    # Find nearest node to depot to start
+    nearest = min(range(1, n), key=lambda x: dist_matrix[0][x])
+    nearest_dist = dist_matrix[0][nearest]
+
+    # Initial route: depot -> nearest -> depot
+    route = [0, nearest, 0]
+    route_set = {0, nearest}
+    unvisited = set(range(1, n)) - {nearest}
+    total_distance = 2 * nearest_dist
+
+    edges = [edge_dict(0, nearest), edge_dict(nearest, 0)]
+
+    steps.append(
+        step_dict(
+            step=0,
+            edges=[],
+            current_node=0,
+            explanation="Start at Depot. Select node closest to route, then insert cheaply.",
+            total_distance=0,
+        )
+    )
+
+    steps.append(
+        step_dict(
+            step=1,
+            edges=list(edges),
+            current_node=nearest,
+            explanation=f"Create initial tour: Depot → {locations[nearest].label} → Depot",
+            total_distance=total_distance,
+            highlight_edge=edge_dict(0, nearest),
+        )
+    )
+
+    step_num = 2
+    while unvisited:
+        # Find node closest to any node in route (parallel selection criterion)
+        best_node = None
+        best_arc_cost = float("inf")
+        node_min_arcs = {}  # For candidates display
+
+        for node in unvisited:
+            min_arc = min(dist_matrix[node][r] for r in route_set)
+            node_min_arcs[node] = min_arc
+            if min_arc < best_arc_cost:
+                best_arc_cost = min_arc
+                best_node = node
+
+        # Now find best position to insert this node
+        best_pos = None
+        best_insertion_cost = float("inf")
+
+        for i in range(1, len(route)):
+            prev, next_node = route[i - 1], route[i]
+            cost = (
+                dist_matrix[prev][best_node]
+                + dist_matrix[best_node][next_node]
+                - dist_matrix[prev][next_node]
+            )
+            if cost < best_insertion_cost:
+                best_insertion_cost = cost
+                best_pos = i
+
+        # Build candidates (by arc distance to route)
+        sorted_nodes = sorted(node_min_arcs.items(), key=lambda x: x[1])
+        candidates = [
+            candidate_dict(node, arc_cost, node == best_node)
+            for node, arc_cost in sorted_nodes[:5]
+        ]
+
+        # Insert the node
+        route.insert(best_pos, best_node)
+        route_set.add(best_node)
+        unvisited.remove(best_node)
+        total_distance += best_insertion_cost
+
+        # Rebuild edges
+        edges = [edge_dict(route[i], route[i + 1]) for i in range(len(route) - 1)]
+        highlight = edge_dict(route[best_pos - 1], best_node)
+
+        prev_label = locations[route[best_pos - 1]].label
+        next_label = locations[route[best_pos + 1]].label
+
+        steps.append(
+            step_dict(
+                step=step_num,
+                edges=list(edges),
+                current_node=best_node,
+                explanation=f"Closest to route: {locations[best_node].label} (arc {best_arc_cost}). Insert between {prev_label}-{next_label} (+{best_insertion_cost})",
+                total_distance=total_distance,
+                highlight_edge=highlight,
+                candidates=candidates,
+            )
+        )
+        step_num += 1
+
+    # Final step
+    steps.append(
+        step_dict(
+            step=step_num,
+            edges=edges,
+            current_node=0,
+            explanation=f"Tour complete! Total distance: {total_distance} units",
+            total_distance=total_distance,
+        )
+    )
+    step_num += 1
+
+    # Add final solution step
+    steps.append(create_final_step(step_num, route, locations, dist_matrix))
+
+    return Solution(
+        strategy="PARALLEL_CHEAPEST_INSERTION",
+        location_count=n,
+        steps=steps,
+        final_route=route,
+        final_distance=total_distance,
+    )
+
+
+def local_cheapest_arc(locations: list[Location], dist_matrix: list[list[int]]) -> Solution:
+    """
+    LOCAL_CHEAPEST_ARC: Build route by selecting the globally cheapest arc
+    that connects a visited node to an unvisited node.
+
+    Different from PATH_CHEAPEST_ARC:
+    - PATH: Always extends from the END of the current path (nearest neighbor)
+    - LOCAL: Picks the cheapest arc from ANY visited node to ANY unvisited node,
+             then restructures the route to include it.
+
+    This can produce different routes because it may "branch" from middle nodes.
+    """
+    n = len(locations)
+    steps = []
+    visited = {0}
+    total_distance = 0
+
+    # We'll build a chain of nodes, but allow insertion at any point
+    # Start with just the depot
+    route_nodes = [0]  # Ordered list of nodes in route (excluding return to depot)
+
+    steps.append(
+        step_dict(
+            step=0,
+            edges=[],
+            current_node=0,
+            explanation="Start at Depot. Find globally cheapest arc from visited to unvisited.",
+            total_distance=0,
+        )
+    )
+
+    step_num = 1
+
+    while len(visited) < n:
+        # Find the globally cheapest arc from any visited node to any unvisited node
+        best_from = None
+        best_to = None
+        best_dist = float("inf")
+        candidates = []
+
+        for v in visited:
+            for u in range(n):
+                if u not in visited:
+                    dist = dist_matrix[v][u]
+                    candidates.append({
+                        "from": v,
+                        "to": u,
+                        "distance": dist,
+                    })
+                    if dist < best_dist:
+                        best_dist = dist
+                        best_from = v
+                        best_to = u
+
+        # Sort candidates by distance for display
+        candidates.sort(key=lambda x: x["distance"])
+        display_candidates = [
+            candidate_dict(c["to"], c["distance"], c["to"] == best_to and c["from"] == best_from)
+            for c in candidates[:5]
+        ]
+
+        # Add the best node to visited
+        visited.add(best_to)
+
+        # Insert best_to into route right after best_from
+        insert_pos = route_nodes.index(best_from) + 1
+        route_nodes.insert(insert_pos, best_to)
+
+        # Build edges from current route order
+        edges = [edge_dict(route_nodes[i], route_nodes[i + 1]) for i in range(len(route_nodes) - 1)]
+
+        # Calculate current chain distance (not including return yet)
+        chain_dist = sum(dist_matrix[route_nodes[i]][route_nodes[i + 1]] for i in range(len(route_nodes) - 1))
+
+        new_edge = edge_dict(best_from, best_to)
+
+        steps.append(
+            step_dict(
+                step=step_num,
+                edges=list(edges),
+                current_node=best_to,
+                explanation=f"Cheapest arc: {locations[best_from].label} → {locations[best_to].label} ({best_dist} units)",
+                total_distance=chain_dist,
+                highlight_edge=new_edge,
+                candidates=display_candidates,
+            )
+        )
+
+        step_num += 1
+
+    # Build final route with return to depot
+    route = route_nodes + [0]
+
+    # Calculate total distance including return
+    total_distance = calculate_route_distance(route, dist_matrix)
+
+    # Build final edges
+    final_edges = [edge_dict(route[i], route[i + 1]) for i in range(len(route) - 1)]
+    return_edge = edge_dict(route[-2], 0)
+
+    steps.append(
+        step_dict(
+            step=step_num,
+            edges=final_edges,
+            current_node=0,
+            explanation=f"Return to Depot from {locations[route[-2]].label}. Tour complete!",
+            total_distance=total_distance,
+            highlight_edge=return_edge,
+        )
+    )
+    step_num += 1
+
+    # Add final solution step
+    steps.append(create_final_step(step_num, route, locations, dist_matrix))
+
+    return Solution(
+        strategy="LOCAL_CHEAPEST_ARC",
+        location_count=n,
+        steps=steps,
+        final_route=route,
+        final_distance=total_distance,
+    )
+
+
+# =============================================================================
 # MAIN
 # =============================================================================
 
 STRATEGIES = {
     "path_cheapest_arc": path_cheapest_arc,
     "global_cheapest_arc": global_cheapest_arc,
+    "local_cheapest_arc": local_cheapest_arc,
     "local_cheapest_insertion": local_cheapest_insertion,
+    "best_insertion": best_insertion,
+    "parallel_cheapest_insertion": parallel_cheapest_insertion,
     "savings": savings_algorithm,
     "christofides": christofides,
     "first_unbound_min_value": first_unbound_min_value,

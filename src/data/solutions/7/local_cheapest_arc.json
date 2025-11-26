@@ -1,0 +1,424 @@
+{
+  "strategy": "LOCAL_CHEAPEST_ARC",
+  "locationCount": 7,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Start at Depot. Find globally cheapest arc from visited to unvisited.",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 6
+        }
+      ],
+      "currentNode": 6,
+      "highlightEdge": {
+        "from": 0,
+        "to": 6
+      },
+      "candidates": [
+        {
+          "node": 6,
+          "distance": 173,
+          "selected": true
+        },
+        {
+          "node": 5,
+          "distance": 197,
+          "selected": false
+        },
+        {
+          "node": 3,
+          "distance": 206,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 212,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 227,
+          "selected": false
+        }
+      ],
+      "explanation": "Cheapest arc: Depot \u2192 F (173 units)",
+      "totalDistance": 173
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 6,
+        "to": 5
+      },
+      "candidates": [
+        {
+          "node": 5,
+          "distance": 157,
+          "selected": true
+        },
+        {
+          "node": 1,
+          "distance": 181,
+          "selected": false
+        },
+        {
+          "node": 5,
+          "distance": 197,
+          "selected": false
+        },
+        {
+          "node": 3,
+          "distance": 206,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 212,
+          "selected": false
+        }
+      ],
+      "explanation": "Cheapest arc: F \u2192 E (157 units)",
+      "totalDistance": 330
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 5
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 6,
+        "to": 1
+      },
+      "candidates": [
+        {
+          "node": 1,
+          "distance": 181,
+          "selected": true
+        },
+        {
+          "node": 3,
+          "distance": 206,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 212,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 227,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 232,
+          "selected": false
+        }
+      ],
+      "explanation": "Cheapest arc: F \u2192 A (181 units)",
+      "totalDistance": 678
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 5
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 0,
+        "to": 3
+      },
+      "candidates": [
+        {
+          "node": 3,
+          "distance": 206,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 227,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 232,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 239,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 301,
+          "selected": false
+        }
+      ],
+      "explanation": "Cheapest arc: Depot \u2192 C (206 units)",
+      "totalDistance": 1082
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 5
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": [
+        {
+          "node": 4,
+          "distance": 166,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 226,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 227,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 232,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 239,
+          "selected": false
+        }
+      ],
+      "explanation": "Cheapest arc: C \u2192 D (166 units)",
+      "totalDistance": 1222
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 5
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 3,
+        "to": 2
+      },
+      "candidates": [
+        {
+          "node": 2,
+          "distance": 226,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 227,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 301,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 371,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 377,
+          "selected": false
+        }
+      ],
+      "explanation": "Cheapest arc: C \u2192 B (226 units)",
+      "totalDistance": 1653
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": {
+        "from": 5,
+        "to": 0
+      },
+      "candidates": null,
+      "explanation": "Return to Depot from E. Tour complete!",
+      "totalDistance": 1850
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 C \u2192 B \u2192 D \u2192 F \u2192 A \u2192 E \u2192 Depot | Total: 1850 units",
+      "totalDistance": 1850,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    3,
+    2,
+    4,
+    6,
+    1,
+    5,
+    0
+  ],
+  "finalDistance": 1850
+}

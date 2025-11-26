@@ -126,7 +126,7 @@
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Tour complete! Total distance: 885 units",
+      "explanation": "All edges added! Edge sum: 885 units. Constructing tour...",
       "totalDistance": 885
     },
     {
@@ -142,14 +142,22 @@
         },
         {
           "from": 4,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
           "to": 0
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Final Route: Depot \u2192 C \u2192 D \u2192 Depot | Total: 611 units",
-      "totalDistance": 611,
+      "explanation": "Final Route: Depot \u2192 C \u2192 D \u2192 A \u2192 B \u2192 Depot | Total: 1348 units",
+      "totalDistance": 1348,
       "isFinal": true
     }
   ],
@@ -157,7 +165,9 @@
     0,
     3,
     4,
+    1,
+    2,
     0
   ],
-  "finalDistance": 885
+  "finalDistance": 1348
 }

@@ -76,6 +76,100 @@ export const strategies: Record<string, Strategy> = {
     return route`,
   },
 
+  BEST_INSERTION: {
+    id: 'BEST_INSERTION',
+    name: 'Best Insertion',
+    shortDesc: 'Insert node with globally minimum insertion cost at each step',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Travelling_salesman_problem#Constructive_heuristics',
+    pseudocode: `function bestInsertion(nodes, depot):
+    # Start with depot -> nearest -> depot
+    route = [depot, nearest_to_depot, depot]
+    unvisited = nodes - route
+
+    while unvisited is not empty:
+        best_node = None
+        best_position = None
+        best_cost = infinity
+
+        # Find globally optimal (node, position) pair
+        for node in unvisited:
+            for i in range(1, len(route)):
+                cost = insertion_cost(route, i, node)
+                if cost < best_cost:
+                    best_cost = cost
+                    best_node = node
+                    best_position = i
+
+        route.insert(best_position, best_node)
+        unvisited.remove(best_node)
+
+    return route
+
+# Key: Evaluates ALL nodes × ALL positions
+# Picks globally optimal insertion each step`,
+  },
+
+  PARALLEL_CHEAPEST_INSERTION: {
+    id: 'PARALLEL_CHEAPEST_INSERTION',
+    name: 'Parallel Cheapest Insertion',
+    shortDesc: 'Select node closest to route, then insert at cheapest position',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Travelling_salesman_problem#Constructive_heuristics',
+    pseudocode: `function parallelCheapestInsertion(nodes, depot):
+    # Start with depot -> nearest -> depot
+    route = [depot, nearest_to_depot, depot]
+    unvisited = nodes - route
+
+    while unvisited is not empty:
+        # Step 1: Find node closest to ANY node in route
+        best_node = argmin(
+            min(dist(node, r) for r in route)
+            for node in unvisited
+        )
+
+        # Step 2: Find cheapest position for this node
+        best_pos = argmin(
+            insertion_cost(route, i, best_node)
+            for i in range(1, len(route))
+        )
+
+        route.insert(best_pos, best_node)
+        unvisited.remove(best_node)
+
+    return route
+
+# Faster than BEST_INSERTION: O(n²) vs O(n³)`,
+  },
+
+  LOCAL_CHEAPEST_ARC: {
+    id: 'LOCAL_CHEAPEST_ARC',
+    name: 'Local Cheapest Arc',
+    shortDesc: 'Find globally cheapest arc from visited to unvisited nodes',
+    wikipediaUrl: 'https://en.wikipedia.org/wiki/Nearest_neighbour_algorithm',
+    pseudocode: `function localCheapestArc(nodes, depot):
+    route = [depot]
+    visited = {depot}
+    unvisited = nodes - {depot}
+
+    while unvisited is not empty:
+        # Find cheapest arc from ANY visited to ANY unvisited
+        (best_from, best_to) = argmin(
+            distance(v, u)
+            for v in visited
+            for u in unvisited
+        )
+        # Insert best_to after best_from in route
+        insert_after(route, best_from, best_to)
+        visited.add(best_to)
+        unvisited.remove(best_to)
+
+    route.append(depot)  # Return to depot
+    return route
+
+# Different from PATH_CHEAPEST_ARC:
+# PATH extends only from route END
+# LOCAL can branch from ANY visited node`,
+  },
+
   SAVINGS: {
     id: 'SAVINGS',
     name: 'Savings (Clarke-Wright)',
@@ -181,7 +275,10 @@ export const strategies: Record<string, Strategy> = {
 export const strategyOrder = [
   'PATH_CHEAPEST_ARC',
   'GLOBAL_CHEAPEST_ARC',
+  'LOCAL_CHEAPEST_ARC',
   'LOCAL_CHEAPEST_INSERTION',
+  'BEST_INSERTION',
+  'PARALLEL_CHEAPEST_INSERTION',
   'SAVINGS',
   'CHRISTOFIDES',
   'FIRST_UNBOUND_MIN_VALUE',

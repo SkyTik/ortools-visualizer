@@ -1,0 +1,293 @@
+{
+  "strategy": "PARALLEL_CHEAPEST_INSERTION",
+  "locationCount": 6,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Start at Depot. Select node closest to route, then insert cheaply.",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 0
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 0,
+        "to": 5
+      },
+      "candidates": null,
+      "explanation": "Create initial tour: Depot \u2192 E \u2192 Depot",
+      "totalDistance": 394
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 0
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 0,
+        "to": 3
+      },
+      "candidates": [
+        {
+          "node": 3,
+          "distance": 206,
+          "selected": true
+        },
+        {
+          "node": 1,
+          "distance": 212,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 227,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 232,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: C (arc 206). Insert between Depot-E (+332)",
+      "totalDistance": 726
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 0
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 3,
+        "to": 4
+      },
+      "candidates": [
+        {
+          "node": 4,
+          "distance": 166,
+          "selected": true
+        },
+        {
+          "node": 1,
+          "distance": 212,
+          "selected": false
+        },
+        {
+          "node": 2,
+          "distance": 226,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: D (arc 166). Insert between C-E (+75)",
+      "totalDistance": 801
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 5,
+        "to": 1
+      },
+      "candidates": [
+        {
+          "node": 1,
+          "distance": 212,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 226,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: A (arc 212). Insert between E-Depot (+339)",
+      "totalDistance": 1140
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 0,
+        "to": 2
+      },
+      "candidates": [
+        {
+          "node": 2,
+          "distance": 226,
+          "selected": true
+        }
+      ],
+      "explanation": "Closest to route: B (arc 226). Insert between Depot-C (+247)",
+      "totalDistance": 1387
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Tour complete! Total distance: 1387 units",
+      "totalDistance": 1387
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 B \u2192 C \u2192 D \u2192 E \u2192 A \u2192 Depot | Total: 1387 units",
+      "totalDistance": 1387,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    1,
+    0
+  ],
+  "finalDistance": 1387
+}

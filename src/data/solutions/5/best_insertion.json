@@ -1,0 +1,226 @@
+{
+  "strategy": "BEST_INSERTION",
+  "locationCount": 5,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Start at Depot. Find node with minimum insertion cost globally.",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 0
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 0,
+        "to": 3
+      },
+      "candidates": null,
+      "explanation": "Create initial tour: Depot \u2192 C \u2192 Depot",
+      "totalDistance": 412
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 0
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 0,
+        "to": 4
+      },
+      "candidates": [
+        {
+          "node": 4,
+          "distance": 199,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 247,
+          "selected": false
+        },
+        {
+          "node": 1,
+          "distance": 409,
+          "selected": false
+        }
+      ],
+      "explanation": "Best global insertion: D between Depot and C (cost +199)",
+      "totalDistance": 611
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 0
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 3,
+        "to": 2
+      },
+      "candidates": [
+        {
+          "node": 2,
+          "distance": 247,
+          "selected": true
+        },
+        {
+          "node": 1,
+          "distance": 409,
+          "selected": false
+        }
+      ],
+      "explanation": "Best global insertion: B between C and Depot (cost +247)",
+      "totalDistance": 858
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 2,
+        "to": 1
+      },
+      "candidates": [
+        {
+          "node": 1,
+          "distance": 286,
+          "selected": true
+        }
+      ],
+      "explanation": "Best global insertion: A between B and Depot (cost +286)",
+      "totalDistance": 1144
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Tour complete! Total distance: 1144 units",
+      "totalDistance": 1144
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 D \u2192 C \u2192 B \u2192 A \u2192 Depot | Total: 1144 units",
+      "totalDistance": 1144,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "finalDistance": 1144
+}

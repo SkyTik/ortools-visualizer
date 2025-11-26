@@ -1,0 +1,533 @@
+{
+  "strategy": "PARALLEL_CHEAPEST_INSERTION",
+  "locationCount": 9,
+  "steps": [
+    {
+      "step": 0,
+      "edges": [],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Start at Depot. Select node closest to route, then insert cheaply.",
+      "totalDistance": 0
+    },
+    {
+      "step": 1,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 7,
+      "highlightEdge": {
+        "from": 0,
+        "to": 7
+      },
+      "candidates": null,
+      "explanation": "Create initial tour: Depot \u2192 G \u2192 Depot",
+      "totalDistance": 172
+    },
+    {
+      "step": 2,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 8,
+      "highlightEdge": {
+        "from": 0,
+        "to": 8
+      },
+      "candidates": [
+        {
+          "node": 8,
+          "distance": 86,
+          "selected": true
+        },
+        {
+          "node": 1,
+          "distance": 128,
+          "selected": false
+        },
+        {
+          "node": 6,
+          "distance": 156,
+          "selected": false
+        },
+        {
+          "node": 5,
+          "distance": 197,
+          "selected": false
+        },
+        {
+          "node": 3,
+          "distance": 206,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: H (arc 86). Insert between Depot-G (+122)",
+      "totalDistance": 294
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 8,
+        "to": 1
+      },
+      "candidates": [
+        {
+          "node": 1,
+          "distance": 128,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 144,
+          "selected": false
+        },
+        {
+          "node": 6,
+          "distance": 156,
+          "selected": false
+        },
+        {
+          "node": 3,
+          "distance": 164,
+          "selected": false
+        },
+        {
+          "node": 5,
+          "distance": 197,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: A (arc 128). Insert between H-G (+248)",
+      "totalDistance": 542
+    },
+    {
+      "step": 4,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 2,
+      "highlightEdge": {
+        "from": 8,
+        "to": 2
+      },
+      "candidates": [
+        {
+          "node": 2,
+          "distance": 144,
+          "selected": true
+        },
+        {
+          "node": 6,
+          "distance": 156,
+          "selected": false
+        },
+        {
+          "node": 3,
+          "distance": 164,
+          "selected": false
+        },
+        {
+          "node": 5,
+          "distance": 197,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 239,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: B (arc 144). Insert between H-A (+203)",
+      "totalDistance": 745
+    },
+    {
+      "step": 5,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 6,
+      "highlightEdge": {
+        "from": 1,
+        "to": 6
+      },
+      "candidates": [
+        {
+          "node": 6,
+          "distance": 156,
+          "selected": true
+        },
+        {
+          "node": 3,
+          "distance": 164,
+          "selected": false
+        },
+        {
+          "node": 5,
+          "distance": 197,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 239,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: F (arc 156). Insert between A-G (+209)",
+      "totalDistance": 954
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 5,
+      "highlightEdge": {
+        "from": 6,
+        "to": 5
+      },
+      "candidates": [
+        {
+          "node": 5,
+          "distance": 157,
+          "selected": true
+        },
+        {
+          "node": 3,
+          "distance": 164,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 239,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: E (arc 157). Insert between F-G (+246)",
+      "totalDistance": 1200
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 3,
+      "highlightEdge": {
+        "from": 8,
+        "to": 3
+      },
+      "candidates": [
+        {
+          "node": 3,
+          "distance": 164,
+          "selected": true
+        },
+        {
+          "node": 4,
+          "distance": 232,
+          "selected": false
+        }
+      ],
+      "explanation": "Closest to route: C (arc 164). Insert between H-B (+246)",
+      "totalDistance": 1446
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 8,
+        "to": 4
+      },
+      "candidates": [
+        {
+          "node": 4,
+          "distance": 166,
+          "selected": true
+        }
+      ],
+      "explanation": "Closest to route: D (arc 166). Insert between H-C (+259)",
+      "totalDistance": 1705
+    },
+    {
+      "step": 9,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Tour complete! Total distance: 1705 units",
+      "totalDistance": 1705
+    },
+    {
+      "step": 10,
+      "edges": [
+        {
+          "from": 0,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 H \u2192 D \u2192 C \u2192 B \u2192 A \u2192 F \u2192 E \u2192 G \u2192 Depot | Total: 1705 units",
+      "totalDistance": 1705,
+      "isFinal": true
+    }
+  ],
+  "finalRoute": [
+    0,
+    8,
+    4,
+    3,
+    2,
+    1,
+    6,
+    5,
+    7,
+    0
+  ],
+  "finalDistance": 1705
+}
