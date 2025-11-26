@@ -19,10 +19,9 @@ Output: JSON files in src/data/solutions/{locationCount}/{strategy}.json
 
 import json
 import math
-import os
-from dataclasses import dataclass, asdict
-from typing import Optional
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Optional
 
 
 @dataclass
@@ -316,8 +315,9 @@ def global_cheapest_arc(locations: list[Location], dist_matrix: list[list[int]])
             node = queue.pop(0)
             for neighbor in adj[node]:
                 if neighbor == j:
-                    # Only a problem if we don't have n edges yet
-                    return len(selected_edges) < n
+                    # Only a problem if we don't have n-1 edges yet
+                    # If len(selected_edges) == n-1, this is the nth edge which closes the tour
+                    return len(selected_edges) < n - 1
                 if neighbor not in visited:
                     visited.add(neighbor)
                     queue.append(neighbor)
@@ -363,12 +363,11 @@ def global_cheapest_arc(locations: list[Location], dist_matrix: list[list[int]])
         step_num += 1
 
     # Construct route from edges by traversing the adjacency list
-    # The edges form a Hamiltonian path - we need to find the proper traversal order
+    # The edges should form a single cycle if the algorithm worked correctly
     route = [0]
     current = 0
     visited = {0}
 
-    # Keep trying to extend the route
     while len(visited) < n:
         found = False
         for neighbor in adj[current]:
@@ -380,13 +379,11 @@ def global_cheapest_arc(locations: list[Location], dist_matrix: list[list[int]])
                 break
 
         if not found:
-            # Current node has no unvisited neighbors
-            # This can happen with global cheapest arc - edges may form disconnected segments
-            # Find any unvisited node that connects to any visited node
+            # If we get stuck (shouldn't happen with valid cycle), try to find any unvisited node
+            # This handles cases where the greedy approach failed to form a perfect cycle
             for v in visited:
                 for neighbor in adj[v]:
                     if neighbor not in visited:
-                        # Insert the path from current back to v, then to neighbor
                         route.append(neighbor)
                         visited.add(neighbor)
                         current = neighbor
@@ -396,7 +393,6 @@ def global_cheapest_arc(locations: list[Location], dist_matrix: list[list[int]])
                     break
 
             if not found:
-                # No more nodes reachable - this shouldn't happen with valid TSP edges
                 break
 
     # Close the tour
@@ -473,44 +469,33 @@ def local_cheapest_insertion(locations: list[Location], dist_matrix: list[list[i
 
     step_num = 2
     while unvisited:
+        # Selection Strategy: Nearest to Depot
+        # Find unvisited node closest to depot
         best_node = None
-        best_pos = None
-        best_cost = float("inf")
-        all_candidates = []
+        min_dist_to_depot = float("inf")
+        candidates_display = []
 
         for node in unvisited:
-            # Find best position to insert this node
-            for i in range(1, len(route)):
-                prev, next_node = route[i - 1], route[i]
-                # Cost = new edges - removed edge
-                cost = (
-                    dist_matrix[prev][node]
-                    + dist_matrix[node][next_node]
-                    - dist_matrix[prev][next_node]
-                )
-                if cost < best_cost:
-                    best_cost = cost
-                    best_node = node
-                    best_pos = i
+            d = dist_matrix[0][node]
+            candidates_display.append((node, d))
+            if d < min_dist_to_depot:
+                min_dist_to_depot = d
+                best_node = node
 
-            # Record best insertion cost for this node
-            min_cost_for_node = float("inf")
-            for i in range(1, len(route)):
-                prev, next_node = route[i - 1], route[i]
-                cost = (
-                    dist_matrix[prev][node]
-                    + dist_matrix[node][next_node]
-                    - dist_matrix[prev][next_node]
-                )
-                min_cost_for_node = min(min_cost_for_node, cost)
-            all_candidates.append((node, min_cost_for_node))
+        # Find best position to insert this node
+        best_pos = None
+        best_cost = float("inf")
 
-        # Sort candidates by cost
-        all_candidates.sort(key=lambda x: x[1])
-        candidates = [
-            candidate_dict(node, cost, node == best_node)
-            for node, cost in all_candidates[:5]
-        ]
+        for i in range(1, len(route)):
+            prev, next_node = route[i - 1], route[i]
+            cost = dist_matrix[prev][best_node] + dist_matrix[best_node][next_node] - dist_matrix[prev][next_node]
+            if cost < best_cost:
+                best_cost = cost
+                best_pos = i
+
+        # Sort candidates by distance to depot for display
+        candidates_display.sort(key=lambda x: x[1])
+        candidates = [candidate_dict(node, d, node == best_node) for node, d in candidates_display[:5]]
 
         # Insert the best node
         route.insert(best_pos, best_node)
@@ -605,7 +590,7 @@ def savings_algorithm(locations: list[Location], dist_matrix: list[list[int]]) -
             step=1,
             edges=list(edges),
             current_node=0,
-            explanation=f"Initial: {n-1} separate routes from depot to each node",
+            explanation=f"Initial: {n - 1} separate routes from depot to each node",
             total_distance=total_distance,
         )
     )
@@ -685,7 +670,7 @@ def savings_algorithm(locations: list[Location], dist_matrix: list[list[int]]) -
     if final_route[0] != 0:
         # Rotate to start at depot
         depot_idx = final_route.index(0)
-        final_route = final_route[depot_idx:] + final_route[1:depot_idx + 1]
+        final_route = final_route[depot_idx:] + final_route[1 : depot_idx + 1]
     if final_route[-1] != 0:
         final_route.append(0)
 
@@ -837,20 +822,60 @@ def christofides(locations: list[Location], dist_matrix: list[list[int]]) -> Sol
     )
     step_num += 1
 
-    # Step 4-5: Find Eulerian circuit and shortcut
-    # DFS to find path, skipping visited nodes
-    visited = set()
+    # Step 4: Find Eulerian circuit (Hierholzer's algorithm or recursive DFS)
+    # We need to traverse every edge exactly once.
+    # Since it's a multigraph, we need to manage edge removal carefully.
+
+    # Create a mutable adjacency list for edge consumption
+    euler_adj = [[] for _ in range(n)]
+    for u in range(n):
+        euler_adj[u] = list(adj[u])  # Copy
+
+    euler_circuit = []
+
+    def find_eulerian_circuit(u):
+        while euler_adj[u]:
+            v = euler_adj[u].pop()
+            # Remove the corresponding reverse edge (v->u)
+            # We must remove only one instance
+            if u in euler_adj[v]:
+                euler_adj[v].remove(u)
+            find_eulerian_circuit(v)
+        euler_circuit.append(u)
+
+    find_eulerian_circuit(0)
+
+    # The circuit is built in reverse order of finishing, but for undirected it doesn't matter much
+    # We can reverse it to be safe
+    euler_circuit.reverse()
+
+    steps.append(
+        step_dict(
+            step=step_num,
+            edges=all_edges,
+            current_node=0,
+            explanation=f"Step 4: Find Eulerian circuit (visits every edge). Length: {len(euler_circuit) - 1} edges",
+            total_distance=total_distance,
+        )
+    )
+    step_num += 1
+
+    # Step 5: Shortcut to Hamiltonian (skip repeated nodes)
     route = []
+    visited_set = set()
+    for node in euler_circuit:
+        if node not in visited_set:
+            route.append(node)
+            visited_set.add(node)
 
-    def dfs(node):
-        visited.add(node)
-        route.append(node)
-        for neighbor in adj[node]:
-            if neighbor not in visited:
-                dfs(neighbor)
+    # Ensure we return to depot
+    if route[0] != 0:
+        # Rotate if needed (shouldn't be if we started at 0)
+        if 0 in route:
+            idx = route.index(0)
+            route = route[idx:] + route[:idx]
 
-    dfs(0)
-    route.append(0)  # Return to depot
+    route.append(0)
 
     # Calculate final distance
     final_distance = calculate_route_distance(route, dist_matrix)
@@ -861,7 +886,7 @@ def christofides(locations: list[Location], dist_matrix: list[list[int]]) -> Sol
             step=step_num,
             edges=final_edges,
             current_node=0,
-            explanation=f"Steps 4-5: Find Eulerian circuit & shortcut to tour. Distance: {final_distance}",
+            explanation=f"Step 5: Shortcut to Hamiltonian tour. Final Distance: {final_distance}",
             total_distance=final_distance,
         )
     )
@@ -1095,11 +1120,7 @@ def best_insertion(locations: list[Location], dist_matrix: list[list[int]]) -> S
             # Find best position for this node
             for i in range(1, len(route)):
                 prev, next_node = route[i - 1], route[i]
-                cost = (
-                    dist_matrix[prev][node]
-                    + dist_matrix[node][next_node]
-                    - dist_matrix[prev][next_node]
-                )
+                cost = dist_matrix[prev][node] + dist_matrix[node][next_node] - dist_matrix[prev][next_node]
                 if cost < min_cost_for_node:
                     min_cost_for_node = cost
                     best_pos_for_node = i
@@ -1114,10 +1135,7 @@ def best_insertion(locations: list[Location], dist_matrix: list[list[int]]) -> S
 
         # Build candidates sorted by their best insertion cost
         sorted_nodes = sorted(node_best_costs.items(), key=lambda x: x[1][0])
-        candidates = [
-            candidate_dict(node, cost, node == best_node)
-            for node, (cost, _) in sorted_nodes[:5]
-        ]
+        candidates = [candidate_dict(node, cost, node == best_node) for node, (cost, _) in sorted_nodes[:5]]
 
         # Insert the best node
         route.insert(best_pos, best_node)
@@ -1233,21 +1251,14 @@ def parallel_cheapest_insertion(locations: list[Location], dist_matrix: list[lis
 
         for i in range(1, len(route)):
             prev, next_node = route[i - 1], route[i]
-            cost = (
-                dist_matrix[prev][best_node]
-                + dist_matrix[best_node][next_node]
-                - dist_matrix[prev][next_node]
-            )
+            cost = dist_matrix[prev][best_node] + dist_matrix[best_node][next_node] - dist_matrix[prev][next_node]
             if cost < best_insertion_cost:
                 best_insertion_cost = cost
                 best_pos = i
 
         # Build candidates (by arc distance to route)
         sorted_nodes = sorted(node_min_arcs.items(), key=lambda x: x[1])
-        candidates = [
-            candidate_dict(node, arc_cost, node == best_node)
-            for node, arc_cost in sorted_nodes[:5]
-        ]
+        candidates = [candidate_dict(node, arc_cost, node == best_node) for node, arc_cost in sorted_nodes[:5]]
 
         # Insert the node
         route.insert(best_pos, best_node)
@@ -1343,11 +1354,13 @@ def local_cheapest_arc(locations: list[Location], dist_matrix: list[list[int]]) 
             for u in range(n):
                 if u not in visited:
                     dist = dist_matrix[v][u]
-                    candidates.append({
-                        "from": v,
-                        "to": u,
-                        "distance": dist,
-                    })
+                    candidates.append(
+                        {
+                            "from": v,
+                            "to": u,
+                            "distance": dist,
+                        }
+                    )
                     if dist < best_dist:
                         best_dist = dist
                         best_from = v

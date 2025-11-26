@@ -175,29 +175,41 @@
           "to": 4
         },
         {
-          "from": 4,
-          "to": 2
-        },
-        {
-          "from": 2,
+          "from": 0,
           "to": 1
         },
         {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
           "from": 1,
-          "to": 0
+          "to": 2
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Steps 4-5: Find Eulerian circuit & shortcut to tour. Distance: 1256",
-      "totalDistance": 1256
+      "explanation": "Step 4: Find Eulerian circuit (visits every edge). Length: 6 edges",
+      "totalDistance": 1277
     },
     {
       "step": 8,
       "edges": [
         {
           "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
           "to": 3
         },
         {
@@ -206,32 +218,54 @@
         },
         {
           "from": 4,
-          "to": 2
-        },
-        {
-          "from": 2,
-          "to": 1
-        },
-        {
-          "from": 1,
           "to": 0
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Final Route: Depot \u2192 C \u2192 D \u2192 B \u2192 A \u2192 Depot | Total: 1256 units",
-      "totalDistance": 1256,
+      "explanation": "Step 5: Shortcut to Hamiltonian tour. Final Distance: 1144",
+      "totalDistance": 1144
+    },
+    {
+      "step": 9,
+      "edges": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Final Route: Depot \u2192 A \u2192 B \u2192 C \u2192 D \u2192 Depot | Total: 1144 units",
+      "totalDistance": 1144,
       "isFinal": true
     }
   ],
   "finalRoute": [
     0,
+    1,
+    2,
     3,
     4,
-    2,
-    1,
     0
   ],
-  "finalDistance": 1256
+  "finalDistance": 1144
 }

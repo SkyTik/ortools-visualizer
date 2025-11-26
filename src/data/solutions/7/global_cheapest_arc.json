@@ -199,16 +199,61 @@
         {
           "from": 1,
           "to": 5
+        },
+        {
+          "from": 2,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 2,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: B-D (371 units)",
+      "totalDistance": 1698
+    },
+    {
+      "step": 8,
+      "edges": [
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 6
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 5
+        },
+        {
+          "from": 2,
+          "to": 4
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "All edges added! Edge sum: 1327 units. Constructing tour...",
-      "totalDistance": 1327
+      "explanation": "All edges added! Edge sum: 1698 units. Constructing tour...",
+      "totalDistance": 1698
     },
     {
-      "step": 8,
+      "step": 9,
       "edges": [
         {
           "from": 0,
@@ -228,22 +273,22 @@
         },
         {
           "from": 2,
-          "to": 3
-        },
-        {
-          "from": 3,
           "to": 4
         },
         {
           "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
           "to": 0
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Final Route: Depot \u2192 F \u2192 E \u2192 A \u2192 B \u2192 C \u2192 D \u2192 Depot | Total: 1586 units",
-      "totalDistance": 1586,
+      "explanation": "Final Route: Depot \u2192 F \u2192 E \u2192 A \u2192 B \u2192 D \u2192 C \u2192 Depot | Total: 1698 units",
+      "totalDistance": 1698,
       "isFinal": true
     }
   ],
@@ -253,9 +298,9 @@
     5,
     1,
     2,
-    3,
     4,
+    3,
     0
   ],
-  "finalDistance": 1586
+  "finalDistance": 1698
 }

@@ -428,31 +428,15 @@
           "to": 7
         },
         {
+          "from": 0,
+          "to": 8
+        },
+        {
           "from": 7,
           "to": 1
         },
         {
-          "from": 1,
-          "to": 3
-        },
-        {
-          "from": 3,
-          "to": 8
-        },
-        {
-          "from": 8,
-          "to": 2
-        },
-        {
-          "from": 2,
-          "to": 6
-        },
-        {
-          "from": 6,
-          "to": 5
-        },
-        {
-          "from": 5,
+          "from": 0,
           "to": 9
         },
         {
@@ -460,15 +444,47 @@
           "to": 4
         },
         {
+          "from": 9,
+          "to": 5
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 7,
+          "to": 6
+        },
+        {
+          "from": 8,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 7
+        },
+        {
           "from": 4,
-          "to": 0
+          "to": 9
+        },
+        {
+          "from": 2,
+          "to": 8
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 1,
+          "to": 3
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Steps 4-5: Find Eulerian circuit & shortcut to tour. Distance: 1956",
-      "totalDistance": 1956
+      "explanation": "Step 4: Find Eulerian circuit (visits every edge). Length: 14 edges",
+      "totalDistance": 2067
     },
     {
       "step": 13,
@@ -479,6 +495,22 @@
         },
         {
           "from": 7,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
           "to": 1
         },
         {
@@ -495,14 +527,24 @@
         },
         {
           "from": 2,
-          "to": 6
+          "to": 0
+        }
+      ],
+      "currentNode": 0,
+      "highlightEdge": null,
+      "candidates": null,
+      "explanation": "Step 5: Shortcut to Hamiltonian tour. Final Distance: 1931",
+      "totalDistance": 1931
+    },
+    {
+      "step": 14,
+      "edges": [
+        {
+          "from": 0,
+          "to": 7
         },
         {
-          "from": 6,
-          "to": 5
-        },
-        {
-          "from": 5,
+          "from": 7,
           "to": 9
         },
         {
@@ -511,29 +553,53 @@
         },
         {
           "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 2
+        },
+        {
+          "from": 2,
           "to": 0
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Final Route: Depot \u2192 G \u2192 A \u2192 C \u2192 H \u2192 B \u2192 F \u2192 E \u2192 I \u2192 D \u2192 Depot | Total: 1956 units",
-      "totalDistance": 1956,
+      "explanation": "Final Route: Depot \u2192 G \u2192 I \u2192 D \u2192 E \u2192 F \u2192 A \u2192 C \u2192 H \u2192 B \u2192 Depot | Total: 1931 units",
+      "totalDistance": 1931,
       "isFinal": true
     }
   ],
   "finalRoute": [
     0,
     7,
+    9,
+    4,
+    5,
+    6,
     1,
     3,
     8,
     2,
-    6,
-    5,
-    9,
-    4,
     0
   ],
-  "finalDistance": 1956
+  "finalDistance": 1931
 }

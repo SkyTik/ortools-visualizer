@@ -158,16 +158,57 @@
         {
           "from": 1,
           "to": 5
+        },
+        {
+          "from": 2,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 2,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: B-D (371 units)",
+      "totalDistance": 1565
+    },
+    {
+      "step": 7,
+      "edges": [
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 5
+        },
+        {
+          "from": 2,
+          "to": 4
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "All edges added! Edge sum: 1194 units. Constructing tour...",
-      "totalDistance": 1194
+      "explanation": "All edges added! Edge sum: 1565 units. Constructing tour...",
+      "totalDistance": 1565
     },
     {
-      "step": 7,
+      "step": 8,
       "edges": [
         {
           "from": 0,
@@ -183,22 +224,22 @@
         },
         {
           "from": 2,
-          "to": 3
-        },
-        {
-          "from": 3,
           "to": 4
         },
         {
           "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
           "to": 0
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Final Route: Depot \u2192 E \u2192 A \u2192 B \u2192 C \u2192 D \u2192 Depot | Total: 1453 units",
-      "totalDistance": 1453,
+      "explanation": "Final Route: Depot \u2192 E \u2192 A \u2192 B \u2192 D \u2192 C \u2192 Depot | Total: 1565 units",
+      "totalDistance": 1565,
       "isFinal": true
     }
   ],
@@ -207,9 +248,9 @@
     5,
     1,
     2,
-    3,
     4,
+    3,
     0
   ],
-  "finalDistance": 1453
+  "finalDistance": 1565
 }

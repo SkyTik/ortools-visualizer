@@ -121,16 +121,53 @@
         {
           "from": 1,
           "to": 2
+        },
+        {
+          "from": 2,
+          "to": 4
+        }
+      ],
+      "currentNode": 4,
+      "highlightEdge": {
+        "from": 2,
+        "to": 4
+      },
+      "candidates": null,
+      "explanation": "Add globally shortest valid edge: B-D (371 units)",
+      "totalDistance": 1256
+    },
+    {
+      "step": 6,
+      "edges": [
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 4
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "All edges added! Edge sum: 885 units. Constructing tour...",
-      "totalDistance": 885
+      "explanation": "All edges added! Edge sum: 1256 units. Constructing tour...",
+      "totalDistance": 1256
     },
     {
-      "step": 6,
+      "step": 7,
       "edges": [
         {
           "from": 0,
@@ -142,22 +179,22 @@
         },
         {
           "from": 4,
-          "to": 1
-        },
-        {
-          "from": 1,
           "to": 2
         },
         {
           "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
           "to": 0
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Final Route: Depot \u2192 C \u2192 D \u2192 A \u2192 B \u2192 Depot | Total: 1348 units",
-      "totalDistance": 1348,
+      "explanation": "Final Route: Depot \u2192 C \u2192 D \u2192 B \u2192 A \u2192 Depot | Total: 1256 units",
+      "totalDistance": 1256,
       "isFinal": true
     }
   ],
@@ -165,9 +202,9 @@
     0,
     3,
     4,
-    1,
     2,
+    1,
     0
   ],
-  "finalDistance": 1348
+  "finalDistance": 1256
 }

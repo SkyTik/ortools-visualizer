@@ -37,60 +37,10 @@
       "edges": [
         {
           "from": 0,
-          "to": 4
-        },
-        {
-          "from": 4,
-          "to": 5
-        },
-        {
-          "from": 5,
-          "to": 0
-        }
-      ],
-      "currentNode": 4,
-      "highlightEdge": {
-        "from": 0,
-        "to": 4
-      },
-      "candidates": [
-        {
-          "node": 4,
-          "distance": 274,
-          "selected": true
-        },
-        {
-          "node": 3,
-          "distance": 332,
-          "selected": false
-        },
-        {
-          "node": 1,
-          "distance": 339,
-          "selected": false
-        },
-        {
-          "node": 2,
-          "distance": 452,
-          "selected": false
-        }
-      ],
-      "explanation": "Insert D between Depot and E (cost +274)",
-      "totalDistance": 668
-    },
-    {
-      "step": 3,
-      "edges": [
-        {
-          "from": 0,
           "to": 3
         },
         {
           "from": 3,
-          "to": 4
-        },
-        {
-          "from": 4,
           "to": 5
         },
         {
@@ -106,22 +56,72 @@
       "candidates": [
         {
           "node": 3,
-          "distance": 133,
+          "distance": 206,
           "selected": true
         },
         {
           "node": 1,
-          "distance": 339,
+          "distance": 212,
           "selected": false
         },
         {
           "node": 2,
-          "distance": 359,
+          "distance": 227,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 239,
           "selected": false
         }
       ],
-      "explanation": "Insert C between Depot and D (cost +133)",
-      "totalDistance": 801
+      "explanation": "Insert C between Depot and E (cost +332)",
+      "totalDistance": 726
+    },
+    {
+      "step": 3,
+      "edges": [
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "currentNode": 1,
+      "highlightEdge": {
+        "from": 5,
+        "to": 1
+      },
+      "candidates": [
+        {
+          "node": 1,
+          "distance": 212,
+          "selected": true
+        },
+        {
+          "node": 2,
+          "distance": 227,
+          "selected": false
+        },
+        {
+          "node": 4,
+          "distance": 239,
+          "selected": false
+        }
+      ],
+      "explanation": "Insert A between E and Depot (cost +339)",
+      "totalDistance": 1065
     },
     {
       "step": 4,
@@ -136,14 +136,14 @@
         },
         {
           "from": 3,
-          "to": 4
-        },
-        {
-          "from": 4,
           "to": 5
         },
         {
           "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
           "to": 0
         }
       ],
@@ -155,27 +155,23 @@
       "candidates": [
         {
           "node": 2,
-          "distance": 247,
+          "distance": 227,
           "selected": true
         },
         {
-          "node": 1,
-          "distance": 339,
+          "node": 4,
+          "distance": 239,
           "selected": false
         }
       ],
       "explanation": "Insert B between Depot and C (cost +247)",
-      "totalDistance": 1048
+      "totalDistance": 1312
     },
     {
       "step": 5,
       "edges": [
         {
           "from": 0,
-          "to": 1
-        },
-        {
-          "from": 1,
           "to": 2
         },
         {
@@ -192,33 +188,33 @@
         },
         {
           "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
           "to": 0
         }
       ],
-      "currentNode": 1,
+      "currentNode": 4,
       "highlightEdge": {
-        "from": 0,
-        "to": 1
+        "from": 3,
+        "to": 4
       },
       "candidates": [
         {
-          "node": 1,
-          "distance": 286,
+          "node": 4,
+          "distance": 239,
           "selected": true
         }
       ],
-      "explanation": "Insert A between Depot and B (cost +286)",
-      "totalDistance": 1334
+      "explanation": "Insert D between C and E (cost +75)",
+      "totalDistance": 1387
     },
     {
       "step": 6,
       "edges": [
         {
           "from": 0,
-          "to": 1
-        },
-        {
-          "from": 1,
           "to": 2
         },
         {
@@ -235,24 +231,24 @@
         },
         {
           "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
           "to": 0
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Tour complete! Total distance: 1334 units",
-      "totalDistance": 1334
+      "explanation": "Tour complete! Total distance: 1387 units",
+      "totalDistance": 1387
     },
     {
       "step": 7,
       "edges": [
         {
           "from": 0,
-          "to": 1
-        },
-        {
-          "from": 1,
           "to": 2
         },
         {
@@ -269,25 +265,29 @@
         },
         {
           "from": 5,
+          "to": 1
+        },
+        {
+          "from": 1,
           "to": 0
         }
       ],
       "currentNode": 0,
       "highlightEdge": null,
       "candidates": null,
-      "explanation": "Final Route: Depot \u2192 A \u2192 B \u2192 C \u2192 D \u2192 E \u2192 Depot | Total: 1334 units",
-      "totalDistance": 1334,
+      "explanation": "Final Route: Depot \u2192 B \u2192 C \u2192 D \u2192 E \u2192 A \u2192 Depot | Total: 1387 units",
+      "totalDistance": 1387,
       "isFinal": true
     }
   ],
   "finalRoute": [
     0,
-    1,
     2,
     3,
     4,
     5,
+    1,
     0
   ],
-  "finalDistance": 1334
+  "finalDistance": 1387
 }
