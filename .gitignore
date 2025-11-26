@@ -32,3 +32,7 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Claude
+.claude/
+CLAUDE.md
