@@ -66,6 +66,16 @@ function App() {
               <Github className="w-4 h-4" />
               <span className="hidden sm:inline">OR-Tools</span>
             </a>
+            <a
+              href="https://github.com/skytik/ortools-visualizer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-white bg-slate-800 hover:bg-slate-700 rounded-md transition-colors"
+              title="View source on GitHub"
+            >
+              <Github className="w-4 h-4" />
+              <span className="hidden sm:inline">Source</span>
+            </a>
           </div>
         </div>
       }
